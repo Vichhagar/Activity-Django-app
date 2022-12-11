@@ -82,7 +82,12 @@
                             {% csrf_token %}
                             <input type="hidden" id="userID" name="userID" value="{{ request.user.id }}">
                             <input type="hidden" id="activityID" name="activityID" value="{{ activity.activity.id }}">
-                            <input id="join-butt" type="submit" value="Join now" data-tosend="{{ activity.activity.id }}">
+                            {% if request.user.id == activity.activity.activityOrganizer.id %}
+                                <input id="join-butt" type="submit" value="You're the host" data-tosend="{{ activity.activity.id }}" disabled>
+                            {% else %}
+                                <input id="join-butt" type="submit" value="Join now" data-tosend="{{ activity.activity.id }}">
+                            {% endif %}
+                            
                         </form>
                         <!-- <a href="#">Join now</a> -->
                     </div>

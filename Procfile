@@ -1,1 +1,1 @@
-web: gunicorn softwareeng.wsgi --log-file -
+web: gunicorn 'activity.wsgi'

@@ -68,8 +68,8 @@ def home(request):
             particepanceList.append(i.userID.id)
         lastestParticepance = ActivityParticepationList.objects.filter(activityID = activity.id).count()
         activityInfo = {"activity" : activity, "particepance" : particepance, "lastestParticepance" : lastestParticepance, "particepanceList" : particepanceList}
-        if activity.activityOrganizer.id != request.user.id:
-            activities.append(activityInfo)
+        # if activity.activityOrganizer.id != request.user.id:
+        activities.append(activityInfo)
 
     
 
